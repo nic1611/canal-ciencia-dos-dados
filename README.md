@@ -1,292 +1,849 @@
 ![alt text](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTK4gQ9nhwHHaSXMHpeggWg7twwMCgb877smkRmtkmDeDoGF9Z6&usqp=CAU)
 
-# <font color='blue'>"Dicas e Truques" de Ciência de Dados</font>
-# <font color='Green'> Sua 1° Máquina Preditiva com Regressão Linear</font>
+# <font color='PURPLE'>Ciência dos Dados na Prática</font>
+
+# <font color='GREY'> Prevendo Evasão de clientes das Seguradoras </font>
 
 
+![](https://www.engagebay.com/blog/wp-content/uploads/2019/02/6-Personalization-Customer-Retention-Strategies.gif)
+
+As seguradoras em todo o mundo operam em um ambiente muito **competitivo**
+
+![](https://i.pinimg.com/originals/66/c3/04/66c3045029cd252090676d2c397ec02d.gif)
+
+Com vários aspectos de dados coletados de milhões de clientes, é extremamente difícil analisar e **entender o motivo da decisão** de um cliente de mudar para um provedor de seguros diferente. 
+
+![](https://webengage.com/blog/wp-content/uploads/sites/4/2019/08/Untitled-1.gif)
+
+Para uma indústria em que a aquisição e retenção de clientes são igualmente importantes, e a primeira sendo um processo mais caro, **as seguradoras contam com OS DADOS para entender o comportamento do cliente e aumentar a retenção**. 
+
+![](https://media0.giphy.com/media/sRFEa8lbeC7zbcIZZR/giphy.gif)
+
+Assim, **saber se um cliente possivelmente quer cancelar o seguro** de antemão dá às seguradoras a oportunidade de **criar estratégias para evitar** que isso realmente aconteça. 
+
+![](https://thumbs.gfycat.com/InsignificantFlakyCoati-size_restricted.gif)
+
+#1° Problema de Negócio
 
 
-![](https://ichi.pro/assets/images/max/724/1*dJE1xuHWTmtdXGElcbfTOA.gif)
+Seu objetivo como cientista de dados é construir um modelo de aprendizado de máquina, uma Máquina Preditiva, que possa **prever se a seguradora perderá um cliente ou não**. Você recebe 16 variáveis anônimas (feature_0 a feature 15) que influenciam a rotatividade de clientes no setor de seguros.
 
-#Aprendizado de Máquina e Inteligência Artificial 
-Essas são algumas palavras no mundo atual que **chamam a atenção** de quase todos. Alguns querem se beneficiar dessas tecnologias e outros querem fazer carreira nelas. Esse Vídeo é principalmente **para aqueles que desejam fazer** carreira nessas áreas ou apenas interessados ​​em conhecer o funcionamento dessa parada muito massa.
-
-![](https://media2.giphy.com/media/l1J9Kauhqh6BsVK80/giphy.gif)
-
-
-#... mas muitos travam por 
-Achar palavras como **Estatística, Probabilidade e Regressão** intimidantes... É completamente compreensível se sentir assim, especialmente se você **vem de uma formação não técnica**. Mas existe uma solução para isso: Entender que não é esse bixo de 7 cabeças.... 
-
-![](https://thumbs.gfycat.com/BonyTotalArthropods-size_restricted.gif)
-
-
-
-### Portanto, comece pequeno. Babysteps...
-![](https://one_org_international.s3.amazonaws.com/international/media/international/2015/01/first-steps_5166836_GIFSoup.com_.gif)
-
-#**Regressão linear simples**
-![](![](https://ichi.pro/assets/images/max/724/1*dJE1xuHWTmtdXGElcbfTOA.gif))
-
-#O que é? Quando usamos LR?
-
-Vamos criar um modelo simples de aprendizado de máquina usando regressão linear. Mas antes de passar para a parte de codificação, vamos examinar os **fundamentos** e a **lógica** por trás dessa parada.
-
-A regressão é usada como algoritmo de **aprendizado de máquina supervisionado**, que é o algoritmo mais usado no momento. A análise de regressão é um método onde estabelecemos uma relação entre uma **variável dependente** (y) e uma **variável independente** (x); portanto, permitindo-nos prever e prever os resultados. 
-
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3E2cGeLpmfuEh3yytfhU1gTGqc3PnRqOLJQ&usqp=CAU)
-
-### Você se lembra....
-
-Você se lembra de resolver equações como **y = mx + c** em seus tempos de escola? Se sim, então parabéns. **Você já conhece a Regressão Linear Simples**. Do contrário, não é nada difícil aprender.
-
-![](https://lh3.googleusercontent.com/proxy/2xNSzJTgCTsnfIGqcZ75PxP2OxgmyM8P0gjWgtq4KPrOS_XwR186NRjKMov4J_jSebCtP4ODVpHssDtdK0NqcDB0T-YlNzpMYKwKYeI)
-
-Vamos considerar um exemplo popular. O **número de horas investidas no estudo** e as **notas obtidas no exame**. Aqui, as notas obtidas dependem do número de horas que um aluno investe no estudo, portanto, as **notas obtidas são a variável dependente y e o número de horas é a variável independente x**. 
-
-* O objetivo é desenvolver uma Máquina Preditiva que nos ajude a **prever as notas obtidas** para um novo número de horas. 
-
-* Vamos fazer isso usando Regressão Linear.
-
-
-
-![](https://www.chilimath.com/wp-content/uploads/2018/05/slope-intercept-form.png)
-
-Essa é a equação da linha de regressão que melhor se ajusta aos dados. 
-
-Aqui,
-
-**y** é a variável dependente, neste caso, **notas obtidas.**
-
-**x** é a variável independente, neste caso, **número de horas**.
-
-**m** é a inclinação(Slope) da linha de regressão e o coeficiente da variável independente.
-
-**b** é a interceptação da linha de regressão.
-
-A lógica é calcular a inclinação **(m)** e interceptar **(b)** com os dados disponíveis e então
-
- **poderemos calcular o valor de y para qualquer valor de x.**
-
-#Como fazer essa parada em Python?
-
-Precisamos importar alguns **pacotes** como **NumPy** para trabalhar com matrizes, **Sklearn** para realizar regressão linear e **Matplotlib** para traçar a linha de regressão e os gráficos. 
-
-Lembre-se de que **é quase impossível** ter conhecimento de cada pacote e biblioteca em Python, especialmente para iniciantes.
-
-![](https://miro.medium.com/max/603/0*RSHaCzm8VQ-DFQOv)
-
-Portanto, é aconselhável **limitar-se a pesquisar o pacote adequado quando necessário para uma tarefa (nada de decoreba)**. É mais fácil lembrar o uso de pacotes com experiência prática envolvida, ao invés de apenas ler teoricamente a documentação disponível sobre eles.
-
-
-# Hands On
 
 
 ```python
-#importação de Pacotes
-import numpy as np                                  # Matrizes
-import matplotlib.pyplot as plt                     # Gráficos
-from sklearn.linear_model import LinearRegression   # Máquina Preditiva
-```
-
-Considerando que este é seu primeiro modelo de aprendizado de máquina, eliminaremos algumas complicações tomando uma amostra muito pequena, em vez de usar dados de um grande banco de dados. Isso também ajudará a ver claramente o resultado nos gráficos e a apreciar o conceito de maneira muito mais didática e eficaz.
-
-
-```python
-#Criar os dados da Variável independente (explicativa)
-xpoints = np.array([10, 11, 12, 13, 14, 15]).reshape(-1,1)
-
-```
-
-##### **Obs**: a função **reshape(-1,1)** é para remodelar os xpoints **para ter 1 coluna e muitas linhas**. O preditor (x) **precisa ser uma matriz de matrizes e a resposta (y) pode ser uma matriz simples.**
-
-
-```python
-#Criar os dados da Variável Dependente ( Variável a ser predita)
-ypoints = np.array([53, 52, 60, 63, 72, 70])
-```
-
-A Máquina Preditiva é criada com o algoritmo **LinearRegression**. Esse algoritmo pode receber Hiper-parâmetros opcionais. Eles não são necessários para este exemplo, portanto, vamos ignorá-los.
-
-Como o nome sugere, o método **.fit()** é para treinar e estimar os parâmetros do modelo, o que significa que ele calcula o valor otimizado de **m e b** usando os dados fornecidos.
-
-![](http://www.cavalcanteassociados.com.br/files/rqua_729.gif)
-
-
-```python
-#Criando a Máquina Preditiva - Escolher o Algoritmo
-maquina_preditiva = LinearRegression()
-
+# Mapeamento de Pacotes
+import pandas as pd
+import seaborn as sns
+import lightgbm as lgb
+from sklearn.metrics import f1_score, accuracy_score
+from sklearn.model_selection import train_test_split
 ```
 
 
 ```python
-# Treinando a Máquina Preditiva - Passando os dados 
-maquina_preditiva.fit(xpoints, ypoints)
+# Versão da Linguagem Python
+from platform import python_version
+print('Versão da Linguagem Python Usada Neste script:', python_version())
+
+#Alertas
+import warnings
+import sys
+warnings.simplefilter(action='ignore', category=FutureWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
+if not sys.warnoptions:
+    warnings.simplefilter("ignore")
+
+
+```
+
+    Versão da Linguagem Python Usada Neste script: 3.8.5
+
+
+#2° Análise Exploratória dos Dados
+
+
+###Fonte de Dados:
+https://www.machinehack.com/hackathons/insurance_churn_prediction_weekend_hackathon_2/leaderboard
+
+![](https://cienciadosdados.com/images/2021/MH.png)
+
+
+```python
+#Importando os Dados
+df_train = pd.read_csv('Train.csv')
+```
+
+
+```python
+#Visualizando as 5 primeiras linhas
+df_train.head(5)
 ```
 
 
 
 
-    LinearRegression()
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>feature_0</th>
+      <th>feature_1</th>
+      <th>feature_2</th>
+      <th>feature_3</th>
+      <th>feature_4</th>
+      <th>feature_5</th>
+      <th>feature_6</th>
+      <th>feature_7</th>
+      <th>feature_8</th>
+      <th>feature_9</th>
+      <th>feature_10</th>
+      <th>feature_11</th>
+      <th>feature_12</th>
+      <th>feature_13</th>
+      <th>feature_14</th>
+      <th>feature_15</th>
+      <th>labels</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.276515</td>
+      <td>-0.424429</td>
+      <td>1.344997</td>
+      <td>-0.012283</td>
+      <td>0.076230</td>
+      <td>1.076648</td>
+      <td>0.182198</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>10</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.853573</td>
+      <td>0.150991</td>
+      <td>0.503892</td>
+      <td>-0.979179</td>
+      <td>-0.569351</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.947747</td>
+      <td>-0.173832</td>
+      <td>1.825628</td>
+      <td>-0.703478</td>
+      <td>0.076230</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>6</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.853573</td>
+      <td>-0.381404</td>
+      <td>0.984523</td>
+      <td>-0.039464</td>
+      <td>-0.569351</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>4</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.324443</td>
+      <td>1.590527</td>
+      <td>-1.178318</td>
+      <td>-0.097711</td>
+      <td>-0.246560</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8</td>
+      <td>3</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
-
-### **Após o Treinamento a gente faz as Previsões com a função "Predict"**
-
-O método .predict () é usado para obter a resposta prevista usando o modelo e leva o preditor xpoints como argumento.
 
 
 ```python
-#Novas Previsões => y_pred
-y_pred = maquina_preditiva.predict(xpoints)
+#Contagem de Domínios Distintos
+df_train.nunique()
 ```
 
-Agora, imprima y_pred e observe que os valores estão bem próximos de ypoints . Se as respostas previstas e reais tiverem valores próximos, isso significa que o modelo é preciso. Em um caso ideal, os valores de resposta previstos e reais se sobreporiam.
+
+
+
+    feature_0       77
+    feature_1     6434
+    feature_2       31
+    feature_3     1482
+    feature_4       47
+    feature_5      517
+    feature_6       36
+    feature_7       12
+    feature_8        3
+    feature_9        4
+    feature_10       2
+    feature_11       2
+    feature_12       2
+    feature_13       3
+    feature_14      12
+    feature_15       4
+    labels           2
+    dtype: int64
+
+
 
 
 ```python
-#Análise Gráfica dos Resultados com Matplotlib
-plt.scatter(xpoints, ypoints)
-plt.plot(xpoints, y_pred)
-plt.xlabel('x-points-ou horas de estudo')
-plt.ylabel('y-points”ou nota na Prova')
-plt.show()
+#Verifica Valores Nulos
+df_train.isna().sum()
 ```
+
+
+
+
+    feature_0     0
+    feature_1     0
+    feature_2     0
+    feature_3     0
+    feature_4     0
+    feature_5     0
+    feature_6     0
+    feature_7     0
+    feature_8     0
+    feature_9     0
+    feature_10    0
+    feature_11    0
+    feature_12    0
+    feature_13    0
+    feature_14    0
+    feature_15    0
+    labels        0
+    dtype: int64
+
+
+
+
+```python
+#Verifica Registros Duplicados
+df_train.duplicated().sum()
+```
+
+
+
+
+    0
+
+
+
+
+```python
+#Estatística Descritiva dos Campos
+df_train.describe()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>feature_0</th>
+      <th>feature_1</th>
+      <th>feature_2</th>
+      <th>feature_3</th>
+      <th>feature_4</th>
+      <th>feature_5</th>
+      <th>feature_6</th>
+      <th>feature_7</th>
+      <th>feature_8</th>
+      <th>feature_9</th>
+      <th>feature_10</th>
+      <th>feature_11</th>
+      <th>feature_12</th>
+      <th>feature_13</th>
+      <th>feature_14</th>
+      <th>feature_15</th>
+      <th>labels</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+      <td>33908.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>-0.004158</td>
+      <td>0.002584</td>
+      <td>-0.000213</td>
+      <td>-0.000053</td>
+      <td>-0.000298</td>
+      <td>-0.004652</td>
+      <td>-0.007498</td>
+      <td>4.336381</td>
+      <td>1.171051</td>
+      <td>1.225345</td>
+      <td>0.018137</td>
+      <td>0.555503</td>
+      <td>0.159667</td>
+      <td>0.639407</td>
+      <td>5.520497</td>
+      <td>2.562375</td>
+      <td>0.116993</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.999776</td>
+      <td>1.014268</td>
+      <td>1.000872</td>
+      <td>1.002512</td>
+      <td>1.003724</td>
+      <td>0.993984</td>
+      <td>0.802696</td>
+      <td>3.273376</td>
+      <td>0.606730</td>
+      <td>0.749104</td>
+      <td>0.133450</td>
+      <td>0.496917</td>
+      <td>0.366303</td>
+      <td>0.897627</td>
+      <td>3.003241</td>
+      <td>0.987148</td>
+      <td>0.321417</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-2.159994</td>
+      <td>-3.081149</td>
+      <td>-1.779108</td>
+      <td>-1.002478</td>
+      <td>-0.569351</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>-0.747384</td>
+      <td>-0.422787</td>
+      <td>-0.938003</td>
+      <td>-0.602517</td>
+      <td>-0.569351</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>3.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>-0.182341</td>
+      <td>-0.297324</td>
+      <td>0.023260</td>
+      <td>-0.303517</td>
+      <td>-0.246560</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>4.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>6.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.665225</td>
+      <td>0.022901</td>
+      <td>0.624050</td>
+      <td>0.236237</td>
+      <td>0.076230</td>
+      <td>-0.411453</td>
+      <td>-0.251940</td>
+      <td>7.000000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>2.000000</td>
+      <td>8.000000</td>
+      <td>3.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>5.091402</td>
+      <td>33.094776</td>
+      <td>1.825628</td>
+      <td>18.094700</td>
+      <td>19.443647</td>
+      <td>8.127648</td>
+      <td>23.625644</td>
+      <td>11.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>11.000000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+#Estatística da Label (target.....Y.....Variável dependente.....caraca é nome demais p mesma coisa)
+df_train['labels'].value_counts(normalize=True)
+sns.countplot(df_train['labels'])
+```
+
+
+
+
+    <AxesSubplot:xlabel='labels', ylabel='count'>
+
+
 
 
     
-![png](output_33_0.png)
+![png](output_20_1.png)
     
 
 
-##### Traçamos os gráficos usando a **função ".scatter()"** que leva xpoints e ypoints como argumentos. 
-
-
-
 
 ```python
-#Obtem o coeficiente da variável x (ou a inclinação, também chamada de slope....tudo a mesma coisa...), que nesse caso é o "m" da equação
-print(maquina_preditiva.coef_)
-
-```
-
-    [4.22857143]
-
-
-
-```python
-#Obtem o valor do intercept ou o valor "b" da equação
-print(maquina_preditiva.intercept_)
-```
-
-    8.809523809523803
-
-
-![](https://www.chilimath.com/wp-content/uploads/2018/05/slope-intercept-form.png)
-
-# Cara, agora vc já construiu sua 1° Máquina Preditiva
-![](https://media2.giphy.com/media/cnuNz0fTBIUGnx4F9T/giphy.gif)
-
-Agora faça novas previsões com sua máquina. Tente prever a nota do cara  "y_new" para **um novo valor de horas de estudo** (novo valor da variável 'x' ...) x_new = 16. 
-
-
-
-##A equação da linha de regressão é **y = 4,23x + 8,80**. 
-
-Então, de acordo com a equação, quando **x = 16**,
-
-**y = 4,23 * (16) + 8,80 = 76,48** 
-
-![](http://1.bp.blogspot.com/_HqjPVvZ1cRI/SCXzU7pma2I/AAAAAAAABVI/rMhzgzazEW8/s400/regressao-yx.gif)
-
-####**Fazendo novas previsões com sua 1° Máquina Preditiva**
-
-
-```python
-# Você vai estimar a nota do aluno com base no seu tempo de estudo de 16 horas
-# Obs: Antes, vc precisa entregar os dados no formato de Matriz (array)
-x_new = np.array([16]).reshape(-1,1)
-```
-
-
-```python
-# Prevendo a nota com sua Máquina
-y_new = maquina_preditiva.predict(x_new)
-print('A nota estimada é de ==>', y_new)
-```
-
-    A nota estimada é de ==> [76.46666667]
-
-
-## Como podemos avaliar nossa Máquina Preditiva?
-![](https://raw.githubusercontent.com/arvention/linear-regression/master/animation.gif)
-
-Podemos usar o método **.score()** que usa as amostras x e y como seus 2 argumentos para encontrar **R2** ou o coeficiente de determinação (Uma das várias Métricas de avaliação das Máquinas). 
-
-O melhor valor para **R2** é 1,0 e ele pode assumir valores negativos também, pois o modelo pode ser pior. Um valor mais próximo de R2 igual a 1,0 indica a **eficiência** da nossa Máquina Preditiva.
-
-
-```python
-maquina_preditiva.score(xpoints, ypoints)
+#Estatística dos Campos
+df_train['feature_2'].value_counts()
+sns.boxplot(df_train['feature_2'])
 ```
 
 
 
 
-    0.8957470010905126
-
-
-
-###**O valor de R2 é 0,89. Portanto, a previsão do modelo é confiável.**
-
-#**Resumão**
-
-Essa Foi sua 1° Máquina Preditiva com o Algoritmo **Regressão Liner Simples.**
-
-Quando estiver confortável com isso, você pode ir um passo à frente e pode usar um conjunto de dados maior. 
-
-Por exemplo, um dataset da [UCI](https://archive.ics.uci.edu/ml/index.php) por Exemplo.  Nesse caso, você precisará trabalhar com os pacotes Pandas e NumPy. A seguir, você pode tentar um modelo de **regressão linear múltipla** ou **logística**. 
+    <AxesSubplot:xlabel='feature_2'>
 
 
 
 
-![](https://miro.medium.com/max/1280/1*eeIvlwkMNG1wSmj3FR6M2g.gif)
+    
+![png](output_21_1.png)
+    
+
+
+
+```python
+#Estatística dos Campos
+df_train['feature_3'].value_counts()
+sns.histplot(df_train['feature_3'], bins=50)
+```
 
 
 
 
+    <AxesSubplot:xlabel='feature_3', ylabel='Count'>
 
 
 
 
+    
+![png](output_22_1.png)
+    
 
-#Simbóra!
+
+
+```python
+#Estatística dos Campos
+df_train['feature_5'].value_counts()
+sns.histplot(df_train['feature_5'], bins=50)
+```
+
+
+
+
+    <AxesSubplot:xlabel='feature_5', ylabel='Count'>
+
+
+
+
+    
+![png](output_23_1.png)
+    
+
+
+
+```python
+#Estatística dos Campos
+df_train['feature_11'].value_counts()
+sns.countplot(df_train['feature_11'])
+```
+
+
+
+
+    <AxesSubplot:xlabel='feature_11', ylabel='count'>
+
+
+
+
+    
+![png](output_24_1.png)
+    
+
+
+
+```python
+#Estatística dos Campos
+df_train['feature_13'].value_counts()
+sns.countplot(df_train['feature_13'])
+```
+
+
+
+
+    <AxesSubplot:xlabel='feature_13', ylabel='count'>
+
+
+
+
+    
+![png](output_25_1.png)
+    
+
+
+
+```python
+#Estatística dos Campos
+df_train['feature_14'].value_counts()
+sns.countplot(df_train['feature_14'])
+```
+
+
+
+
+    <AxesSubplot:xlabel='feature_14', ylabel='count'>
+
+
+
+
+    
+![png](output_26_1.png)
+    
+
+
+
+```python
+#Estatística dos Campos
+df_train['feature_15'].value_counts()
+sns.countplot(df_train['feature_15'])
+```
+
+
+
+
+    <AxesSubplot:xlabel='feature_15', ylabel='count'>
+
+
+
+
+    
+![png](output_27_1.png)
+    
+
+
+
+```python
+#Mapa de Correlação das Variáveis(features)
+corr = df_train.corr()
+sns.heatmap(corr)
+```
+
+
+
+
+    <AxesSubplot:>
+
+
+
+
+    
+![png](output_28_1.png)
+    
+
+
+#3° Pré-Processamento dos Dados
+
+### **Balanceamento** **da** **Classe**
+O conjunto de dados está altamente desbalanceado e precisa de tratamento. Vamos usar uma **Hiperparâmetro** do Algoritmo ao invés de usar funções específicas como o SMOTE.
+
+### **Seleção das Variáveis - Feature Select**
+
+
+```python
+#Separando os valores para realizar o Treinamento 
+array = df_train.values
+```
+
+
+```python
+# Separando o array em componentes de input e output (variáveis explicativas e Target(Y))
+X = array[:, [2,3,5,11,13,14,15]]
+Y = array[:,16]
+```
+
+
+```python
+# Definindo o tamanho dos dados de treino e de teste
+teste_size = 0.38
+seed = 7
+
+
+```
+
+
+```python
+# Criando o dataset de treino e de teste
+X_treino, X_teste, y_treino, y_teste = train_test_split(X, Y, test_size = teste_size, random_state = seed)
+
+```
+
+#4° Construíndo a Máquina Preditiva 
+
+
+
+```python
+# Criando a Máquina Preditiva
+modelo = lgb.LGBMClassifier(
+                            n_estimators=95,
+                            learning_rate=0.1,
+                            scale_pos_weight=3, 
+                            random_state=7,
+                           )
+
+
+```
+
+### **Explicando os Hiperparâmetros**
+
+
+"**scale_pos_weight**":  
+Controle o saldo de pesos positivos e negativos, útil para classes **desbalanceadas**.
+Geralmente, o Scale_pos_weight é a proporção do número de classe negativa para a classe positiva. Suponha que o conjunto de dados possua 90 observações da classe negativa e 10 observações da classe positiva; o valor ideal de scale_pos_Weight pode ser 9.
+
+https://lightgbm.readthedocs.io/en/latest/Parameters.html
+
+
+**"learning_rate"**
+É um parâmetro de ajuste em um algoritmo de otimização que determina o tamanho da etapa em cada iteração enquanto se move em direção a um mínimo de uma função de perda.
+Metaforicamente é a velocidade com que um modelo de aprendizado de máquina "aprende" Costumo usar valores entre [0001, 0.001, 0.01, 0.1, 0.2, 0.3]
+
+**"n_estimators"**É o número de árvores de decisão.
+
+"**random_state**"É uma semente aleatória para gerar os mesmos valores que os meus.
+
+
+```python
+# Treinando o modelo
+modelo.fit(X_treino, y_treino)
+
+# Pront do modelo
+print(modelo)
+
+# Fazendo previsões
+y_pred = modelo.predict(X_teste)
+previsoes = [round(value) for value in y_pred]
+
+
+```
+
+    LGBMClassifier(n_estimators=95, random_state=7, scale_pos_weight=3)
+
+
+#5° Avaliação da Máquina Preditiva
+
+
+```python
+# Avaliando com a Métrica Acurácia
+accuracy = accuracy_score(y_teste, previsoes)
+print("Acurácia: %.2f%%" % (accuracy * 100.0))
+```
+
+    Acurácia: 89.59%
+
+
+
+```python
+# Avaliando com a Métrica da Competição F1_Score
+F1 = f1_score(y_teste, previsoes)
+F1
+```
+
+
+
+
+    0.6286662977310459
+
+
+
+
+# Entre os 17 Primeiros do Mundo na Competição!
+https://www.machinehack.com/hackathons/insurance_churn_prediction_weekend_hackathon_2/leaderboard
+
+![](https://cienciadosdados.com/images/2021/TOP17-2.png)
+
+
+![](https://cienciadosdados.com/images/2021/TOP1.png)
+
+# **Resumão**
+![](https://i.pinimg.com/originals/8a/08/32/8a0832c65e2c644302c106d5157b48a9.gif)
+
+* Nesta aula, aprendemos a **Criar Máquina Preditiva** que prevê a se o Cliente quer Abandonar a Seguradora....
+* Mais 1 Case com **LightGBM**
+* **Hiperparâmetros**
+* Seleção de Variáveis - **Feature Selection**
+* Ficamos entre os 18 primeiros colocados na competição
+
+
+
 
 #Fim
-![](https://img.computersm.com/img/around-the-home/how-to-make-animated-gifs-in-paint.net)
 
-### #YouTube - Mais Aulas como essa no YouTube 
-https://www.youtube.com/channel/UCd3ThZLzVDDnKSZMsbK0icg?sub_confirmation=1
+## Valeu!
 
 ### #Links - Ciência dos Dados <a href="https://linktr.ee/cienciadosdados">https://linktr.ee/cienciadosdados</a>
+
+### #YouTube - Mais Aulas como essa no YouTube <a href="https://www.youtube.com/watch?v=IaIc5oHd3II&t=1569s">https://www.youtube.com/watch?v=IaIc5oHd3II&t=1569s</a>
 
 
 ```python
 from IPython.core.display import HTML
-HTML('<iframe width="680" height="400" src="https://www.youtube.com/embed/O8SZGlSFnwo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+HTML('<iframe width="380" height="202" src="https://www.youtube.com/embed/vp_-ZIUst6c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
 ```
 
-    /home/nico/.local/lib/python3.8/site-packages/IPython/core/display.py:717: UserWarning: Consider using IPython.display.IFrame instead
-      warnings.warn("Consider using IPython.display.IFrame instead")
 
 
 
+<iframe width="380" height="202" src="https://www.youtube.com/embed/vp_-ZIUst6c" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<iframe width="680" height="400" src="https://www.youtube.com/embed/O8SZGlSFnwo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-
-####Links fontes: 
-
-https://www.analyticsvidhya.com/blog/2021/02/build-your-first-linear-regression-machine-learning-model/
